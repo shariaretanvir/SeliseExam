@@ -1,0 +1,68 @@
+﻿@model BusinessLayer.Contact
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    
+    
+    <h4>Contact</h4>
+    @Html.ActionLink("Back to List", "Index")           |       @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) | @Html.ActionLink("Delete", "Delete", new {id = Model.Id})
+    <hr/>
+    <table style="width: 500px; border: 1px solid black;">
+        <tr>
+            <td style="padding: 10px">
+                <strong style="color: deepskyblue">@Html.DisplayNameFor(model => model.Name)</strong> <br/>
+                <div style="border: 1px solid blue">
+
+                </div>
+                @Html.DisplayFor(model => model.Name)
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 10px">
+                <strong style="color: deepskyblue">@Html.DisplayNameFor(model => model.Phone)</strong> <br/>
+                <div style="border: 1px solid blue">
+
+                </div>
+                @Html.DisplayFor(model => model.Phone)
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 10px">
+                <strong style="color: deepskyblue">@Html.DisplayNameFor(model => model.Email)</strong> <br/>
+                <div style="border: 1px solid blue">
+
+                </div>
+                @Html.DisplayFor(model => model.Email)
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 10px">
+                <strong style="color: deepskyblue">Organization</strong> <br/>
+                <div style="border: 1px solid blue">
+
+                </div>
+                <b>@Html.DisplayFor(model => model.Company)</b> <br/>
+                @Html.DisplayFor(model => model.Title)
+            </td>
+        </tr>
+
+        <tr>
+            <td style="padding: 10px">
+                <strong style="color: deepskyblue">Address</strong> <br/>
+                <div style="border: 1px solid blue"></div>
+                @Html.DisplayFor(model => model.House) <br/>
+                @Html.DisplayFor(model => model.Street) ,
+                @Html.DisplayFor(model => model.PoBox) <br/>
+                @Html.DisplayFor(model => model.City) <br/>
+                @Html.DisplayFor(model => model.Zip) <br/>
+            </td>
+        </tr>
+
+    </table>
+
+</div>

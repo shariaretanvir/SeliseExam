@@ -1,0 +1,38 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<BusinessLayer.Contact>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm("Index", "Contacts", FormMethod.Get))
+{
+    <input type="text" name="name" /> <input type="submit" value="search" class="btn btn-default" />
+}
+<table style="border: 15px solid #BBC4C7; margin-top: 20px" class="table">
+    <tr>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        <tr style="border: 1px solid black" onclick="location.href = '@(Url.Action("Details", "Contacts", new { id = item.Id}))'">
+            <td>
+                <strong>@Html.DisplayFor(modelItem => item.Name)</strong><br />
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+          
+        </tr>
+
+
+    }
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, name = Request.QueryString["name"] }))
